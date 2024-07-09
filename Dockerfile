@@ -1,16 +1,13 @@
 
-FROM node:latest
+FROM mysql:latest
 
-WORKDIR /app
+ENV MYSQL_ROOT_PASSWORD=my-secret-pw
+ENV MYSQL_DATABASE=my_database
+ENV MYSQL_USER=my_user
+ENV MYSQL_PASSWORD=my_password
 
-COPY package*.json ./
+EXPOSE 3306
 
-RUN npm install
+VOLUME /var/lib/mysql
 
-COPY . .
-
-
-EXPOSE 3000
-
-CMD ["node", "app.js"]
-
+CMD ["mysqld"]
