@@ -8,7 +8,7 @@ ENV MYSQL_PASSWORD=my_password
 
 COPY . .
 
-EXPOSE 3306
+EXPOSE 80
 
 VOLUME /var/lib/mysql
 
